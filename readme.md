@@ -50,16 +50,15 @@ A Todo-list for the dataset generation:
 
   Files under this folder are described as follows:
 
-  > GL3D-5
-  >  --Input_Data       (data such as input images)
-  >  --Sift                     (code for sift feature extraction and matching)
-  >  --Vision_Gemo   (code for epipolar geometry calculation)
-  >
-  > config.py                                                         configuration for generate GL3D-5% datasets 
-  > generate_scene1_dataset.py                       code for generate the first scene datasets
-  > generate_scene2_dataset.py                       code for generate the second scene datasets
-  > generate_scene3_dataset.py                       code for generate the third scene datasets  
-  > generate_gl3d_5_datasets.py                      code for generate GL3D-5% datasets 
+  > GL3D-5  
+       --Input_Data       (data such as input images)  
+       --Sift                     (code for sift feature extraction and matching)  
+       --Vision_Gemo   (code for epipolar geometry calculation)  
+  config.py                                      configuration for generate GL3D-5% datasets  
+  generate_scene1_dataset.py                       code for generate the first scene datasets  
+  generate_scene2_dataset.py                       code for generate the second scene datasets  
+  generate_scene3_dataset.py                       code for generate the third scene datasets  
+  generate_gl3d_5_datasets.py                      code for generate GL3D-5% datasets 
 
 4. Open the configuration file of generating GL3D-5% datasets with following command
 
@@ -68,10 +67,10 @@ A Todo-list for the dataset generation:
   The config file uses the python argparse module which can parse the configuration parameters from the input command.
   The configuration items included in this config file are described as follows:
 
-  > --datasets_output_Path            root path of output file
-  > --false_corr_geod                       epipolar constraint threshold for detect false correspondences
-  > --sift_peak_thrld                         peak threshold for sift algorithm
-  > --sift_edge_thrld                         edge threshold for sift algorithm
+  > --datasets_output_Path            root path of output file  
+  --false_corr_geod                       epipolar constraint threshold for detect false correspondences  
+  --sift_peak_thrld                         peak threshold for sift algorithm  
+  --sift_edge_thrld                         edge threshold for sift algorithm
 
   these items can be modified if you need, otherwise default value
 
@@ -81,61 +80,56 @@ A Todo-list for the dataset generation:
 
   Running python file will take a while. After finishing running, a folder named GL3D_5_Datasets will be generated in the output file root path. Files under GL3D_5_Datasets folder are described as follows:
 
-  > GL3D_ 5_Datasets
-  >  --train 
-  >        --merge_imgs_data.pkl
-  >        --label.pkl            
-  >        --others.pkl    
-  >        --xs_4.pkl                
-  >        --xs_12.pkl
-  > --valid
-  >       --merge_imgs_data.pkl
-  >       --label.pkl
-  >       --others.pkl
-  >       --xs_4.pkl
-  >       --xs_12.pkl
-  > --test
-  >       --merge_imgs_data.pkl
-  >       --label.pkl
-  >       --others.pkl
-  >       --xs_4.pkl
-  >       --xs_12.pkl
+  > GL3D_ 5_Datasets  
+  --train  
+  --merge_imgs_data.pkl  
+  --label.pkl  
+  --others.pkl  
+  --xs_4.pkl  
+  --xs_12.pkl  
+  --valid  
+  --merge_imgs_data.pkl  
+  --label.pkl  
+  --others.pkl  
+  --xs_4.pkl  
+  --xs_12.pkl  
+  --test  
+  --merge_imgs_data.pkl  
+  --label.pkl  
+  --others.pkl  
+  --xs_4.pkl  
+  --xs_12.pkl
 
   The content and format of data for each pkl file are described as follows:
   merge_imgs_data.pkl file contains image index and image data.
 
-  > image index(int16),image data(1000x1000 int16)
-  >
-  > 25   [126 127 178 148 190 ......  56 178 26 198 238 76]
-  > ........
+  > image index(int16),image data(1000x1000 int16)  
+  25   [126 127 178 148 190 ......  56 178 26 198 238 76]  
+  ........
 
   label.pkl file contains correspondences labels(int16).
 
-  > label(int16)
-  >
-  > 1 0 0 1 ........  0  0  1
-  > ........
+  > label(int16)  
+  1 0 0 1 ........  0  0  1  
+  ........
 
   others.pkl file contains image index and correct correspondences number.
 
-  > left image index(int16),right image index(int16),correct correspondences number(int16)
-  >
-  > 12   25   67
-  > ........
+  > left image index(int16),right image index(int16),correct correspondences number(int16)  
+  12   25   67  
+  ........
 
   xs_12.pkl file contains the correspondences 2d keypoints . Each keypoint is parameterized by a 2x3 transformation, composed of  keypoint position,   orientation and size.  Please refer to <<GeoDesc: Learning Local Descriptors by Integrating Geometry Constraints>> in Sec.3.2 for specific details.
 
-  > Parameterized keypoint(1x12 float32) 
-  >
-  > 0.25712258 -0.52153296 -0.58181703 -0.38229898 -0.38166887 -0.53448558 0.02235542 0.56109281 0.36525526 -0.84163922  0.13353313 -0.16430511
-  > ........
+  > Parameterized keypoint(1x12 float32)  
+  0.25712258 -0.52153296 -0.58181703 -0.38229898 -0.38166887 -0.53448558 0.02235542 0.56109281 0.36525526 -0.84163922  0.13353313 -0.16430511  
+  ........
 
   xs_4.pkl file contains normalized correspondences 2d keypoints
 
-  > Normalize keypoint(1x4 float32)
-  >
-  > -0.125  0.625    0.125   0.250
-  > ........
+  > Normalize keypoint(1x4 float32)  
+  -0.125  0.625    0.125   0.250  
+  ........
 
 
 
@@ -149,9 +143,9 @@ Please use Python 3.6, opencv-contrib-python (3.4.0.12). Other dependencies shou
 
 Here we provide python scripts for generating matches on the refined GL3D and Hpatch datasets.
 
-> cd gl3d_5 
-> python generate_gl3d_5_datasets.py
-> cd gl3d_20 
-> python generate_gl3d_20_datasets.py 
-> cd hpatch  
-> python generate_hpatch_datasets.py  
+> cd gl3d_5  
+python generate_gl3d_5_datasets.py  
+cd gl3d_20  
+python generate_gl3d_20_datasets.py  
+cd hpatch  
+python generate_hpatch_datasets.py  
