@@ -73,6 +73,50 @@ def read_corr(file_path):
     return matches
 
 
+def read_corr_1(file_path):
+    """Read the match correspondence file.
+    Args:
+        file_path: file path.
+    Returns:
+        matches: list of match data, each consists of two image indices and Nx15 match matrix, of
+        which each line consists of two 2x3 transformations, geometric distance and two feature
+        indices.
+    """
+    matches = []
+    count  = 0
+    while True:
+        if count <= 2000:
+            fin = open('./corr1.bin', 'wb+')
+            count += 1
+        elif count > 2000 and count <= 4000:
+            fin = open('./corr2.bin', 'wb+')
+            count += 1
+        elif count > 4000 and count <= 6000:
+            fin = open('./corr3.bin', 'wb+')
+            count += 1
+        elif count > 6000 and count <= 8000:
+            fin = open('./corr4.bin', 'wb+')
+            count += 1
+        else:
+            fin = open('./corr5.bin', 'wb+')
+            count += 1
+
+        rin = fin.read(24)
+        # print(rin)
+        if len(rin) == 0:
+            # EOF
+            break
+        idx0, idx1, num=unpack('Q' * 3, rin)    # L
+        bytes_theta = num * 60
+        rin1 = fin.read(bytes_theta)
+        corr = np.fromstring(rin1, dtype=np.float32).reshape(-1, 15)
+        matches.append([idx0, idx1, corr])
+
+    return matches
+
+
+
+
 def read_kpt(file_path):
     """Read the keypoint file.
     Args:
