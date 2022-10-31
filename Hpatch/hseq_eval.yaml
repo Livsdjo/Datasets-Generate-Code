@@ -1,0 +1,20 @@
+hseq:
+  # root: "E:/contextdesc-master/contextdesc-master/hpatches-sequences-release/hpatches-sequences-release"
+  root: "./Input_Data/"
+  seq: ["v", "i"]
+  kpt_n: 2000
+  start_idx: 0
+  suffix:
+  overwrite: false
+  upright: false
+  sift_desc: True
+eval:
+  loc_model: "E:/contextdesc-master/contextdesc-master/pretrained/contextdesc++/model.ckpt-400000"
+  reg_model: "E:/contextdesc-master/contextdesc-master/pretrained/retrieval_model/model.ckpt-550000"
+  err_thld: 2.5
+reg_feat:
+  max_dim: 1024
+network:
+  dense_desc: false
+  reg_feat_dim: 2048
+  aug: true
