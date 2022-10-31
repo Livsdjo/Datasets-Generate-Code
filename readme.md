@@ -39,10 +39,10 @@ A Todo-list for the dataset generation:
   > cd Generate_Datasets_Code
 
   Files  under this folder are described as follows:
-  GL3D_20           code for generate GL3D-20% datasets
-  GL3D_5             code for generate  GL3D-5% datasets
-  Hpatch              code for generate  Hpatch datasets
-  readme.md      description of this repository 
+  GL3D_20  (code for generate GL3D-20% datasets)
+  GL3D_5             (code for generate  GL3D-5% datasets)
+  Hpatch              (code for generate  Hpatch datasets)
+  readme.md      (description of this repository) 
 
 3. Use the following command to enter GL3D_5 folder
 
@@ -54,11 +54,11 @@ A Todo-list for the dataset generation:
        --Input_Data       (data such as input images)  
        --Sift                     (code for sift feature extraction and matching)  
        --Vision_Gemo   (code for epipolar geometry calculation)  
-  config.py                                      configuration for generate GL3D-5% datasets  
-  generate_scene1_dataset.py                       code for generate the first scene datasets  
-  generate_scene2_dataset.py                       code for generate the second scene datasets  
-  generate_scene3_dataset.py                       code for generate the third scene datasets  
-  generate_gl3d_5_datasets.py                      code for generate GL3D-5% datasets 
+  config.py                                      (configuration for generate GL3D-5% datasets)  
+  generate_scene1_dataset.py                       (code for generate the first scene datasets)  
+  generate_scene2_dataset.py                       (code for generate the second scene datasets)  
+  generate_scene3_dataset.py                       (code for generate the third scene datasets)  
+  generate_gl3d_5_datasets.py                      (code for generate GL3D-5% datasets) 
 
 4. Open the configuration file of generating GL3D-5% datasets with following command
 
@@ -67,38 +67,38 @@ A Todo-list for the dataset generation:
   The config file uses the python argparse module which can parse the configuration parameters from the input command.
   The configuration items included in this config file are described as follows:
 
-  > --datasets_output_Path            root path of output file  
-  --false_corr_geod                       epipolar constraint threshold for detect false correspondences  
-  --sift_peak_thrld                         peak threshold for sift algorithm  
-  --sift_edge_thrld                         edge threshold for sift algorithm
+  > --datasets_output_Path                  (root path of output file)  
+  --false_corr_geod                         (epipolar constraint threshold for detect false correspondences)  
+  --sift_peak_thrld                         (peak threshold for sift algorithm)  
+  --sift_edge_thrld                         (edge threshold for sift algorithm)
 
   these items can be modified if you need, otherwise default value
 
 5. Use the following command to configure the root path of output file and run generate_gl3d_5_Datasets.py file to generate GL3D-5% datasets
 
-  > python generate_gl3d_5_datasets.py --datasets_ output_ Path="Output file root path configured by yourself"
+  > python  generate_gl3d_5_datasets.py   --datasets_output_Path="Output file root path configured by yourself"
 
   Running python file will take a while. After finishing running, a folder named GL3D_5_Datasets will be generated in the output file root path. Files under GL3D_5_Datasets folder are described as follows:
 
   > GL3D_ 5_Datasets  
   --train  
-  --merge_imgs_data.pkl  
-  --label.pkl  
-  --others.pkl  
-  --xs_4.pkl  
-  --xs_12.pkl  
+  ----merge_imgs_data.pkl  
+  ----label.pkl  
+  ----others.pkl  
+  ----xs_4.pkl  
+  ----xs_12.pkl  
   --valid  
-  --merge_imgs_data.pkl  
-  --label.pkl  
-  --others.pkl  
-  --xs_4.pkl  
-  --xs_12.pkl  
+  ----merge_imgs_data.pkl  
+  ----label.pkl  
+  ----others.pkl  
+  ----xs_4.pkl  
+  ----xs_12.pkl  
   --test  
-  --merge_imgs_data.pkl  
-  --label.pkl  
-  --others.pkl  
-  --xs_4.pkl  
-  --xs_12.pkl
+  ----merge_imgs_data.pkl  
+  ----label.pkl  
+  ----others.pkl  
+  ----xs_4.pkl  
+  ----xs_12.pkl
 
   The content and format of data for each pkl file are described as follows:
   merge_imgs_data.pkl file contains image index and image data.
