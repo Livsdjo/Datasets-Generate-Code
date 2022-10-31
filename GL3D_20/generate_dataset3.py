@@ -19,7 +19,7 @@ sys.path.append('..')
 
 from Vision_Gemo.geom import get_essential_mat, get_epipolar_dist, undist_points, warp, grid_positions, upscale_positions, \
     downscale_positions, relative_pose
-from Vision_Gemo.io import read_kpt, read_corr, read_mask, hash_int_pair, read_cams, load_pfm
+from Vision_Gemo.io import read_kpt, read_corr_1, read_mask, hash_int_pair, read_cams, load_pfm
 from Vision_Gemo.patch_extractor import PatchExtractor
 from Sift import get_model
 from Vision_Gemo.opencvhelper import MatcherWrapper
@@ -147,7 +147,7 @@ class visualize_new_class_def:
         self.match_pair_idx = match_pair_idx
         corr_path = os.path.join(self.root,'geolabel','corr.bin')
         print(corr_path)
-        self.match_records = read_corr(corr_path)
+        self.match_records = read_corr_1(corr_path)
         self.cidx0 = self.match_records[self.match_pair_idx][0]
         self.cidx1 = self.match_records[self.match_pair_idx][1]
         self.basename0 = str(self.cidx0).zfill(8)  # 在左边补齐0 统一长度
